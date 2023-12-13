@@ -1,16 +1,17 @@
-# This is a sample Python script.
+from question_model import Question
+from data import question_data
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Create a variable to hold list of questions and answers
+question_bank = []
+# Grab each key and add them to the list using the method from the Question class
+for question in question_data:
+    question_text = question["text"]
+    question_answer = question["answer"]
+    new_question = Question(question_text, question_answer)
+    question_bank.append(new_question)
+# TODO: Ask user the questions
 
+# TODO: Check if the answer was correct
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# TODO: Check if we're at the end of the quiz
+print(question_bank[0].text, question_bank[0].answer)
