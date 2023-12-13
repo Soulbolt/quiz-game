@@ -10,12 +10,13 @@ for question in question_data:
     question_answer = question["answer"]
     new_question = Question(question_text, question_answer)
     question_bank.append(new_question)
-# Ask user the questions
+
 quiz = QuizBrain(question_bank)
 
 # Check if quiz still has questions remaining
 while quiz.still_has_questions():
+    # Ask user the questions
     quiz.next_question()
-    # Check if the answer was correct
-    if quiz.next_question():
-        print("You got it!")
+
+print("You've completed the quiz!")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")
